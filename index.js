@@ -2,8 +2,10 @@ import express from 'express';
 import dotenv from "dotenv"
 import morgan from "morgan";
 import mongoose from "mongoose";
+import connect from "./config/db.js";
 
 dotenv.config();
+connect();
 
 const PORT = process.env.PORT || 3000;
 
