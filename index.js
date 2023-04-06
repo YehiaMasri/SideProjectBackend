@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import morgan from "morgan";
 import mongoose from "mongoose";
 import connect from "./config/db.js";
+import ProductRouter from './routes/ProductRoute.js';
 
 dotenv.config();
 connect();
@@ -20,6 +21,8 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('API is running...')
 })
+
+app.use("/product", ProductRouter);
 
 
 app.listen(PORT, console.log(`Server is running in ${process.env.NODE_ENV} on port ${PORT}!!!`))
