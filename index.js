@@ -4,6 +4,10 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import connect from "./config/db.js";
 import ProductRouter from './routes/ProductRoute.js';
+import userRoute from "./routes/userRoute.js"
+import categoryRoute from "./routes/categoryRoute.js"
+import cookieParser from "cookie-parser";
+
 
 dotenv.config();
 connect();
@@ -21,8 +25,14 @@ app.use(express.json());
 app.get('/', (req, res) => {
     res.send('API is running...')
 })
-
+app.use(cookieParser());
+app.use(express.urlencoded({ extended: false }));
+app.use(function (err, req, res, next) {
+    next(catchError(404));
+});
+app.use("/user", userRoute);
 app.use("/product", ProductRouter);
+app.use("/category", categoryRoute);
 
 
 app.listen(PORT, console.log(`Server is running in ${process.env.NODE_ENV} on port ${PORT}!!!`))
