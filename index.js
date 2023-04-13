@@ -4,7 +4,7 @@ import morgan from "morgan";
 import mongoose from "mongoose";
 import connect from "./config/db.js";
 import ProductRouter from './routes/ProductRoute.js';
-import userRoute from "./routes/userRoute.js"
+// import userRoute from "./routes/userRoute.js"
 import categoryRoute from "./routes/categoryRoute.js"
 import cookieParser from "cookie-parser";
 
@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(function (err, req, res, next) {
     next(catchError(404));
 });
-app.use("/user", userRoute);
+// app.use("/user", userRoute);
 app.use("/product", ProductRouter);
 app.use("/category", categoryRoute);
 
