@@ -52,3 +52,4 @@ const storage = multer.diskStorage({
   },
 });
 export const upload = multer({ storage }).single("file");
+export default verifyUser;
