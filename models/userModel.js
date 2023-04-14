@@ -46,7 +46,7 @@ const userSchema = new Schema(
         },
     },
     {
-        collation:"Users",
+        collection:"Users",
         timestamps:true,
     }
 );
