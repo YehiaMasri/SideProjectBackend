@@ -7,6 +7,7 @@ import ProductRouter from './routes/ProductRoute.js';
 import userRoute from "./routes/userRoute.js"
 import categoryRoute from "./routes/categoryRoute.js"
 import cookieParser from "cookie-parser";
+import cros from "cors"
 
 
 dotenv.config();
@@ -21,7 +22,7 @@ if (process.env.NODE_ENV === "development"){
 }
 
 app.use(express.json());
-
+app.use(cros());
 app.get('/', (req, res) => {
     res.send('API is running...')
 })
